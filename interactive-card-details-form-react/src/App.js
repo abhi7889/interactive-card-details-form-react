@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import CardForm from "./components/Form/CardForm";
-import "./app.css";
 import Card from "./components/CreditCard/Card";
 
 export default function App() {
