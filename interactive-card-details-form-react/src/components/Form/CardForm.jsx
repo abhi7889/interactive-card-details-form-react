@@ -17,7 +17,6 @@ export default function CardForm({ updateCardInfo }) {
     setCardNumber(formattedWithSpaces);
   };
 
-
   const handleCardholderNameChange = (e) => {
     const inputName = e.target.value;
 
@@ -25,7 +24,6 @@ export default function CardForm({ updateCardInfo }) {
       setCardholderName(inputName);
     }
   };
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
