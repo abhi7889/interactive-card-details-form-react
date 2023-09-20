@@ -1,7 +1,19 @@
-import React from 'react'
+import React, { useState } from "react";
+import CardForm from "./components/Form/CardForm";
+import "./app.css";
+import Card from "./components/CreditCard/Card";
 
 export default function App() {
+  const [cardInfo, setCardInfo] = useState({});
+
+  const updateCardInfo = (newCardInfo) => {
+    setCardInfo(newCardInfo);
+    console.log("Updated cardInfo:", newCardInfo);
+  };
   return (
-    <div>App</div>
-  )
+    <>
+      <Card cardInfo={cardInfo} />
+      <CardForm updateCardInfo={updateCardInfo} />
+    </>
+  );
 }

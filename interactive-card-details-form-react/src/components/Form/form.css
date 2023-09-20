@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Roboto:wght@400;700&display=swap");
+.cardForm {
+  display: flex;
+  flex-direction: column;
+  max-width: 240px;
+  display: flex;
+  margin-left: 130px;
+  padding: 1px;
+}
+.cardForm label {
+  font-family: "Inter", sans-serif;
+  margin-bottom: 16px;
+  gap: 14px;
+  display: flex;
+  flex-direction: column;
+  color: #404040;
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1.86px;
+}
+.card-input {
+  width: 382px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.13);
+  background: #fff;
+  padding-left: 15px;
+  color: #bbb9bc;
+  font-family: Inter;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 1.875px;
+}
+
+.labelmm input {
+  width: 78px;
+  height: 44px;
+  flex-shrink: 0;
+}
+
+.labelmm div {
+  display: flex;
+  gap: 10px;
+}
+
+.labelcvc input {
+  width: 173px;
+  height: 44px;
+  flex-shrink: 0;
+}
+.cvc-mmyy {
+  display: flex;
+  margin-bottom: 26px;
+  position: relative;
+  gap: 10px;
+}
+
+.btn-submit {
+  width: 400px;
+  height: 53px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  background: #220930;
+  color: #fff;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.16px;
+  border-style: none;
+  border: 1px solid #000;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.btn-submit:hover {
+  cursor: pointer;
+  background-color: #000000;
+  transition: 0.7s;
+}
+
+
+
+.info {
+  transition: height 0.3s ease-in-out;
+  margin-top: 4px;
+  margin-bottom: 5px;
+  overflow: hidden;
+  height: 20px;
+  transform: translateY(-10px);
+  margin: 0;
+  color: #f81212;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

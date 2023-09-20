@@ -8,3 +8,27 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+body::after {
+	content: '';
+	background-image: url('./assets/bg-main-desktop.png');
+	background-size: cover;
+	width: 33.5%;
+	height: 100vh;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -100;
+	transition: width 0.35s ease-in-out, height 0.35s ease-in-out;
+}
+
+.body-slider::after {
+	width: 100%;
+}
+
+#root {
+	display: flex;
+	min-height: 100vh;
+	align-items: center;
+	justify-content: center;
+}
