@@ -21,6 +21,7 @@
   line-height: normal;
   letter-spacing: 1.86px;
 }
+
 .card-input {
   width: 382px;
   height: 44px;
@@ -31,13 +32,13 @@
   padding-left: 15px;
   color: #bbb9bc;
   font-family: Inter;
-  text-transform: uppercase;
   font-size: 15px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
   letter-spacing: 1.875px;
 }
+
 
 .labelmm input {
   width: 78px;

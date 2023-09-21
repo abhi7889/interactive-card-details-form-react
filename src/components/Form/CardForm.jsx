@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./form.css";
+import { toast } from 'react-toastify';
 
 export default function CardForm({ updateCardInfo }) {
   const [cardholderName, setCardholderName] = useState("");
@@ -10,14 +11,18 @@ export default function CardForm({ updateCardInfo }) {
   const [error, setError] = useState({});
 
   const formatCardNumber = (inputValue) => {
-    const formattedValue = inputValue.replace(/\s/g, '').replace(/(.{4})/g, '$1 ').trim().slice(0, 19);
-
+    const formattedValue = inputValue
+      .replace(/\s/g, "")
+      .replace(/(.{4})/g, "$1 ")
+      .trim()
+      .slice(0, 19);
 
     setCardNumber(formattedValue);
   };
 
   const handleCardholderNameChange = (e) => {
     const inputName = e.target.value;
+    setCardholderName(inputName.charAt(0).toUpperCase() + inputName.slice(1));
 
     if (/^[A-Za-z\s]*$/.test(inputName)) {
       setCardholderName(inputName);
@@ -44,7 +49,12 @@ export default function CardForm({ updateCardInfo }) {
 
     if (Object.keys(newError).length === 0) {
       const expDate = `${mm}/${yy}`;
-      updateCardInfo({ cardholderName, cardNumber, cvc, expDate });
+      updateCardInfo({ cardholderName, cardNumber, cvc, expDate,mm,yy });
+
+      toast.success("Payment confirmed successfully!", {
+        position: "top-center",
+        autoClose: 3000, // Close after 3 seconds
+      });
 
       setCardholderName("");
       setCardNumber("");
@@ -95,13 +105,14 @@ export default function CardForm({ updateCardInfo }) {
           EXP.DATE (MM/YY)
           <div>
             <input
-              type="text"
-              placeholder="MM"
-              name="mm"
-              className="card-input"
-              maxLength="2"
-              pattern="^(0[1-9]|1[0-2])$"
-              onChange={(e) => setMM(e.target.value)}
+               type="text"
+               placeholder="MM"
+               name="mm"
+               className="card-input"
+               maxLength="2"
+               pattern="^(0[1-9]|1[0-2])$"
+               value={mm} 
+               onChange={(e) => setMM(e.target.value)}
             />
             <input
               type="text"
@@ -110,6 +121,7 @@ export default function CardForm({ updateCardInfo }) {
               className="card-input"
               maxLength="2"
               pattern="^[0-9]{2}$"
+              value={yy} 
               onChange={(e) => setYY(e.target.value)}
             />
           </div>
@@ -123,6 +135,7 @@ export default function CardForm({ updateCardInfo }) {
             placeholder="e.g. 123"
             name="cvc"
             maxLength={3}
+            value={cvc}
             className="card-input"
           />
           {error.cvc && (
