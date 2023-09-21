@@ -11,8 +11,9 @@ export default function CardForm({ updateCardInfo }) {
   const [error, setError] = useState({});
 
   const formatCardNumber = (inputValue) => {
+    // Only allow digits in the card number input
     const formattedValue = inputValue
-      .replace(/\s/g, "")
+      .replace(/\D/g, "")
       .replace(/(.{4})/g, "$1 ")
       .trim()
       .slice(0, 19);
@@ -21,9 +22,7 @@ export default function CardForm({ updateCardInfo }) {
   };
 
   const handleCardholderNameChange = (e) => {
-    const inputName = e.target.value;
-    setCardholderName(inputName.charAt(0).toUpperCase() + inputName.slice(1));
-
+    const inputName = e.target.value.toUpperCase();
     if (/^[A-Za-z\s]*$/.test(inputName)) {
       setCardholderName(inputName);
     }
@@ -53,7 +52,7 @@ export default function CardForm({ updateCardInfo }) {
 
       toast.success("Payment confirmed successfully!", {
         position: "top-center",
-        autoClose: 3000, // Close after 3 seconds
+        autoClose: 3000,
       });
 
       setCardholderName("");
@@ -73,7 +72,7 @@ export default function CardForm({ updateCardInfo }) {
           value={cardholderName}
           onChange={handleCardholderNameChange}
           placeholder="e.g. Jane Appleseed"
-          name="name"
+          name="cardholderName"
           className="card-input"
         />
         {error.cardholderName && (
@@ -90,8 +89,9 @@ export default function CardForm({ updateCardInfo }) {
           onChange={(e) => formatCardNumber(e.target.value)}
           value={cardNumber}
           placeholder="e.g. 1234 5678 9123 0000"
-          name="name"
+          name="cardNumber"
           className="card-input"
+        
         />
         {error.cardNumber && (
           <p className="info" aria-live="polite">

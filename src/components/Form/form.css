@@ -30,7 +30,7 @@
   border: 1px solid rgba(0, 0, 0, 0.13);
   background: #fff;
   padding-left: 15px;
-  color: #bbb9bc;
+  color: #404040;
   font-family: Inter;
   font-size: 15px;
   font-style: normal;
@@ -38,7 +38,13 @@
   line-height: normal;
   letter-spacing: 1.875px;
 }
-
+.card-input input{
+  color: #404040;
+}
+.card-input::placeholder
+{
+  color: #bbb9bc;
+}
 .labelmm input {
   width: 78px;
   height: 44px;
