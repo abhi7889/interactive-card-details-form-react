@@ -10,11 +10,10 @@ export default function CardForm({ updateCardInfo }) {
   const [error, setError] = useState({});
 
   const formatCardNumber = (inputValue) => {
-    const formattedValue = inputValue.replace(/\D/g, "").slice(0, 16);
+    const formattedValue = inputValue.replace(/\s/g, '').replace(/(.{4})/g, '$1 ').trim().slice(0, 19);
 
-    const formattedWithSpaces = formattedValue.replace(/(\d{4})/g, "$1 ");
 
-    setCardNumber(formattedWithSpaces);
+    setCardNumber(formattedValue);
   };
 
   const handleCardholderNameChange = (e) => {
@@ -46,6 +45,12 @@ export default function CardForm({ updateCardInfo }) {
     if (Object.keys(newError).length === 0) {
       const expDate = `${mm}/${yy}`;
       updateCardInfo({ cardholderName, cardNumber, cvc, expDate });
+
+      setCardholderName("");
+      setCardNumber("");
+      setCvc("");
+      setMM("");
+      setYY("");
     }
   };
 
