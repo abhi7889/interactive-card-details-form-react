@@ -15,7 +15,7 @@ export default function Card({ cardInfo }) {
 
         <div className="name-exp">
           <div className="cardholderName">
-            {cardInfo.cardholderName || "ABHISHEK SHARMA"}
+            {cardInfo.cardholderName || "Jane Appleseed"}
           </div>
           <div className="exp-date">{cardInfo.expDate || "00/00"}</div>
         </div>
